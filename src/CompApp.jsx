@@ -3,12 +3,8 @@ import { observer } from "mobx-react-lite";
 import CompList from "./CompList";
 
 const CompApp = observer(() => {
-  const [forecast, setForecast] = useState(""); //состояние знач. поля ввода, предсказание
+  const [forecast, setForecast] = useState(Math.round(Math.random() * 100)); //состояние знач. поля ввода, предсказание
   const [stackState, setStackState] = useState([]); //состояние массива
-
-  React.useEffect(() => {
-    setForecast(Math.round(Math.random() * 100));
-  }, []);
 
   function pushFunction() {
     setStackState((stackState) => [...stackState, forecast]);
@@ -18,10 +14,6 @@ const CompApp = observer(() => {
     setStackState(stackState.slice(0, -1));
   }
 
-  function changingInputValue(event) {
-    setForecast(event.target.value);
-  }
-
   return (
     <div className="App">
       <h1>Stack</h1>
@@ -29,7 +21,7 @@ const CompApp = observer(() => {
         id="subject"
         type="text"
         value={forecast}
-        onChange={(event) => changingInputValue(event)}
+        onChange={(event) => setForecast(event.target.value)}
       />
       <br />
       <br />
