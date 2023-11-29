@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { observer } from "mobx-react-lite";
 import CompList from "./CompList";
 
-const CompApp = observer(() => {
+const CompApp = () => {
   const [forecast, setForecast] = useState(Math.round(Math.random() * 100)); //состояние знач. поля ввода, предсказание
   const [stackState, setStackState] = useState([]); //состояние массива
 
@@ -36,6 +35,6 @@ const CompApp = observer(() => {
       <CompList stack={stackState} forecast={forecast}></CompList>
     </div>
   );
-});
+};
 
 export default CompApp;
