@@ -6,7 +6,7 @@ const CompApp = () => {
   const [stackState, setStackState] = useState([]); //состояние массива
 
   function pushFunction() {
-    setStackState((stackState) => [...stackState, forecast]);
+    setStackState([...stackState, forecast]);
   }
 
   function popFunction() {
