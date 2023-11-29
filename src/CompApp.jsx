@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import CompList from "./CompList";
 
 const CompApp = () => {
-  const [forecast, setForecast] = useState(Math.round(Math.random() * 100)); //состояние знач. поля ввода, предсказание
-  const [stackState, setStackState] = useState([]); //состояние массива
+  const [forecast, setForecast] = useState(Math.round(Math.random() * 100)); //состояние знач. поля ввода, "предсказание"
+  const [stackState, setStackState] = useState([]); //состояние массива зафиксированных значений
 
   function pushFunction() {
     setStackState([...stackState, forecast]);
@@ -14,22 +14,16 @@ const CompApp = () => {
   }
 
   return (
-    <div className="App">
+    <div>
       <h1>Stack</h1>
       <input
-        id="subject"
-        type="text"
         value={forecast}
         onChange={(event) => setForecast(event.target.value)}
       />
       <br />
       <br />
-      <button id="push" onClick={pushFunction}>
-        Push
-      </button>
-      <button id="pop" onClick={popFunction}>
-        Pop
-      </button>
+      <button onClick={pushFunction}>Push</button>
+      <button onClick={popFunction}>Pop</button>
       <br />
 
       <CompList stack={stackState} forecast={forecast}></CompList>
