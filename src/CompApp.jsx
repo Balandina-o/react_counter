@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import CompList from "./CompList";
 
 const CompApp = observer(() => {
-  const [forecast, setForecast] = useState(""); //состояние знач. поля ввода, прексказание
+  const [forecast, setForecast] = useState(""); //состояние знач. поля ввода, предсказание
   const [stackState, setStackState] = useState([]); //состояние массива
 
   React.useEffect(() => {
